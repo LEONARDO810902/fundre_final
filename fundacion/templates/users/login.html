@@ -1,0 +1,44 @@
+{% extends "users/base_users.html" %}
+{% load static %}
+
+{% block title %} Ingresar {% endblock %}
+
+{% block content %}
+
+{% include "includes/header.html" %}
+
+<div class="container-fluid" style="margin-top:2em;">
+    <div class="row justify-content-center">
+        <div class="col-xs-12 col-md-6">
+            <div class="card" style="width: 100%;">
+                <div class="card-divider">
+                    <h4 class="text-center">ACCESO DE USUARIO</h4>
+                </div>
+                <div class="car-section">
+                    <form class="col-xs-12 col-md-12 " method="post" enctype="multipart/form-data">{% csrf_token %}
+
+                        <div class="row justify-content-center">
+                            <div class=" mb-3 col-xs-12 col-md-7">
+                                <label>Usuario:</label>
+                                <div class="form-control-lg">{{form.username}}</div>
+                            </div>
+                            <div class="mb-3 col-xs-12 col-md-7">
+                                <label>Contraseña: </label>
+                                <div class="form-control-lg">{{form.password}}</div>
+                            </div>
+                        </div>
+                        <br>
+                        <button type="submit" class="col-12 btn btn-outline-success">Acceder</button>
+                    </form>
+                    <br>
+                    <a class="col-12 btn btn-outline-secondary" href="{% url 'users_app:user-create' %}">Registrar</a>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+{% endblock content %}
