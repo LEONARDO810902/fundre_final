@@ -1,14 +1,12 @@
 from tkinter import TRUE
 from .base import *
+import os
 
 # SECURITY WARNING: don't run with debug turned on in production!
 
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = ['fundacioncristoredentor.org',
-                 'http://www.fundacioncristoredentor.org', 'https://www.fundacioncristoredentor.org',
-                 'http://www.fundacioncristoredentor.org/admin'
-                 ]
+ALLOWED_HOSTS = ['*']
 
 
 CSRF_TRUSTED_ORIGINS = ['https://fundacioncristoredentor.org']
@@ -31,13 +29,18 @@ DATABASES = {
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
 
+# SE DEBE INSTALAR WHITENOISE
+
 STATIC_URL = '/static/'
-STATIC_ROOT = f'{BASE_DIR}{STATIC_URL}'
 STATICFILES_URL = '/staticfiles/'
 STATICFILES_DIRS = [f'{BASE_DIR}{STATICFILES_URL}', ]
+STATIC_ROOT = "/home/fundacio8/fundre/staticfiles"
+
+
+# LOS MEDIAS DE LA PAGINA
 
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR.child('media')
+MEDIA_ROOT = "/home/fundacio8/fundre/media"
 
 
 # ckeditor settings
