@@ -1,4 +1,3 @@
-
 from django.core.exceptions import ImproperlyConfigured
 import json
 
@@ -44,6 +43,9 @@ DJANGO_APPS = (
 LOCAL_APPS = (
     'applications.home',
     'applications.users',
+    'applications.entrada',
+    'applications.favoritos',
+    'applications.esal',
 
 )
 

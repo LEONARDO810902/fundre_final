@@ -1,0 +1,38 @@
+<!-- head para PC -->
+{% extends "entrada/base_entrada.html" %}
+{% load static %}
+
+{% block panel %}
+
+<div class="container-fluid">
+    <h3 class="cell">{{entrada.titulo}}</h3>
+    <div class="row">
+        <div class=" callout col-8">
+            <h3>Resumen:</h3>
+            <p class="text-justify">{{entrada.resumen}}</p>
+        </div>
+        <div class="col-8">
+            <p class="text-justify">{{entrada.contenido | safe}}</p>
+        </div>
+        <div class="col-4">
+            <div class="card" style="width: 100%;">
+                <img src="{{entrada.image.url}}">
+                <div class="card-section" style="width: 100%;">
+                    <form class="" method="post" action="{% url 'favoritos_app:agregar-favoritos' entrada.id %}">
+                        {% csrf_token %}
+                        <button class="btn col-12 btn-outline-danger" type="submit">Agregar a Favoritos </button>
+                    </form>
+                    <hr class="dropdown-divider">
+                    <div class="margin-top: 2em">
+                        <a href="{% url 'entrada_app:lista-entradas' %}"
+                            class="btn col-12 btn-outline-secondary">Regresar a
+                            las Entradas</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+{% endblock panel %}
